@@ -25,6 +25,6 @@ class JeansSpider(scrapy.Spider):
         fields_item["image"] = response.xpath("//meta[@property='og:image']/@content").extract()
         fields_item["size"] = response.xpath("//li/span[@class='']/text()").extract()
         fields_item["price"] = response.xpath("//span[@itemprop='price']/@content").extract()
-        fields_item["description"] = response.xpath("//div[@itemprop='description']/text()").extract()
+        fields_item["description"] = response.xpath("//div[@itemprop='description']/text()").extract_first()
         fields_item["color"] = response.xpath("//dd[@class='product-variant-attribute-label__selected-value']/text()").extract()
         return fields_item
