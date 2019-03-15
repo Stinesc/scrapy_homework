@@ -11,9 +11,9 @@ class JeansSpider(scrapy.Spider):
         pages_urls = response.xpath('//ol[@class="pa-page-number"]/li/a/@href').extract()
 
         for url in pages_urls:
-            yield scrapy.Request(self.prefix_url+url, callback=self.parse_category)
+            yield scrapy.Request(self.prefix_url+url, callback=self.parse_page)
 
-    def parse_category(self, response):
+    def parse_page(self, response):
         urls = response.xpath('//a[@class="mainBlackText"]/@href').extract()
 
         for url in urls:
