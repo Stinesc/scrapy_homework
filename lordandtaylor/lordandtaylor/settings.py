@@ -20,6 +20,11 @@ NEWSPIDER_MODULE = 'lordandtaylor.spiders'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+ITEM_PIPELINES = {
+    'scrapy_redis.pipelines.RedisPipeline': 300
+}
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
