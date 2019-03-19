@@ -5,7 +5,7 @@ git clone https://github.com/Stinesc/scrapy_homework.git
 python3 -m venv ./venv
 . venv/bin/activate
 pip3 install -r requirements.txt
-cd ./lordandtaylor
+cd ./lordandtaylor_site
 scrapy crawl jeans
 celery -A lordandtaylor_site worker --loglevel=info
 ```

@@ -8,13 +8,13 @@ from jeans_scraping.tasks import add_items
 
 
 class LordandtaylorPipeline(object):
-
     current_items = list()
 
     def process_item(self, item, spider):
-        print(self.current_items, 999)
+        print(self.current_items, 999555)
         self.current_items.append(item)
         if len(self.current_items) >= 1:
+            print('dsff')
             add_items(self.current_items)
             self.current_items.clear()
         return item

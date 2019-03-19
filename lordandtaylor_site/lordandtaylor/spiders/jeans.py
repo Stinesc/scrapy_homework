@@ -5,11 +5,11 @@ from ..items import LordandtaylorItem
 
 class JeansSpider(RedisSpider):
     name = "jeans"
+    redis_key = 'jeans:start_urls'
     prefix_url = "https://www.lordandtaylor.com"
 
-
-    #def make_requests_from_url(self, url):
-
+    #start_urls = [
+    #    "https://www.lordandtaylor.com/Men/Apparel/Jeans/shop/_/N-4ztf06/Ne-6ja3o7?sre=MHP_MODPE2_L1_PROMO_MENS"]
 
     def parse(self, response):
         pages_urls = response.xpath('//ol[@class="pa-page-number"]/li/a/@href').extract()
