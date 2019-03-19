@@ -13,6 +13,6 @@ class LordandtaylorItem(scrapy.Item):
     title = scrapy.Field()
     image = scrapy.Field()
     price = scrapy.Field()
-    size = scrapy.Field()
+    sizes = scrapy.Field()
     description = scrapy.Field()
     color = scrapy.Field()

@@ -7,4 +7,5 @@ python3 -m venv ./venv
 pip3 install -r requirements.txt
 cd ./lordandtaylor
 scrapy crawl jeans
+celery -A lordandtaylor_site worker --loglevel=info
 ```

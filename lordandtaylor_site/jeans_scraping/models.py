@@ -4,7 +4,7 @@ from django.db import models
 class Garment(models.Model):
     title = models.CharField(max_length=32, blank=True, default="")
     image_url = models.URLField()
-    price = models.DecimalField(decimal_places=2)
+    price = models.DecimalField(decimal_places=2, max_digits=10)
     color = models.CharField(max_length=32, blank=True, default="")
     description = models.CharField(max_length=256, blank=True, default="")
 
@@ -17,7 +17,7 @@ class Garment(models.Model):
 
 class Size(models.Model):
     size_content = models.CharField(max_length=32, blank=True, default="")
-    garment = models.ForeignKey(Garment, on_delete=models.SET_NULL, null=True)
+    garment = models.ForeignKey(Garment, on_delete=models.CASCADE, null=False)
 
     def __str__(self):
         return self.size_content

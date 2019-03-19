@@ -8,6 +8,14 @@
 #     https://doc.scrapy.org/en/latest/topics/settings.html
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+import os
+import sys
+import django
+
+sys.path.append(os.path.dirname(os.path.abspath('.')))
+os.environ['DJANGO_SETTINGS_MODULE'] = 'lordandtaylor_site.settings'
+django.setup()
+
 
 BOT_NAME = 'lordandtaylor'
 
@@ -23,7 +31,8 @@ ROBOTSTXT_OBEY = False
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 ITEM_PIPELINES = {
-    'scrapy_redis.pipelines.RedisPipeline': 300
+    'lordandtaylor.pipelines.LordandtaylorPipeline': 300,
+    'scrapy_redis.pipelines.RedisPipeline': 300,
 }
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)

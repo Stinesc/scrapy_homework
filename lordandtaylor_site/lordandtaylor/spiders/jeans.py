@@ -5,8 +5,8 @@ from ..items import LordandtaylorItem
 
 class JeansSpider(RedisSpider):
     name = "jeans"
-    #start_urls = ['https://www.lordandtaylor.com/Men/Apparel/Jeans/shop/_/N-4ztf06/Ne-6ja3o7?sre=MHP_MODPE2_L1_PROMO_MENS']
     prefix_url = "https://www.lordandtaylor.com"
+
 
     #def make_requests_from_url(self, url):
 
@@ -27,7 +27,7 @@ class JeansSpider(RedisSpider):
         fields_item = LordandtaylorItem()
         fields_item["title"] = response.xpath("//a[@class='product-overview__brand-link']/text()").extract()
         fields_item["image"] = response.xpath("//meta[@property='og:image']/@content").extract()
-        fields_item["size"] = self.parse_size(response)
+        fields_item["sizes"] = self.parse_size(response)
         fields_item["price"] = response.xpath("//span[@itemprop='price']/@content").extract()
         fields_item["description"] = response.xpath("//div[@itemprop='description']/text()").extract_first()
         fields_item["color"] = response.xpath(
@@ -39,5 +39,5 @@ class JeansSpider(RedisSpider):
         if not sizes:
             sizes = response.xpath(
             "//select[@class='drop-down-list__select drop-down-list__select--default']/option[not(@value='')]/text()"
-            ).extract().split(" ", 1)[0]
+            ).extract()
         return sizes
