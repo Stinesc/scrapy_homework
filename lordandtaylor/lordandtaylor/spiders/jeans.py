@@ -5,7 +5,6 @@ from ..items import LordandtaylorItem
 
 class JeansSpider(RedisSpider):
     name = "jeans"
-    redis_key = 'jeans:start_urls'
     prefix_url = "https://www.lordandtaylor.com"
 
     #start_urls = [

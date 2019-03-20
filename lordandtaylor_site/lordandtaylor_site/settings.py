@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'jeans_scraping',
-
-    'channels'
 ]
 
 MIDDLEWARE = [
@@ -73,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'lordandtaylor_site.wsgi.application'
-ASGI_APPLICATION = 'lordandtaylor_site.routing.application'
+'''ASGI_APPLICATION = 'lordandtaylor_site.routing.application'
 
 CHANNEL_LAYERS = {
     'default': {
@@ -81,11 +79,11 @@ CHANNEL_LAYERS = {
         'CONFIG': {
             "hosts": {
                         "address": ("localhost", 6379),
-                        "db": 1,
+                        "db": 2,
                     }
         },
     },
-}
+}'''
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

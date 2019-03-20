@@ -12,7 +12,7 @@ import os
 import sys
 import django
 
-sys.path.append(os.path.dirname(os.path.abspath('.')))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath('.')), 'lordandtaylor_site'))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'lordandtaylor_site.settings'
 django.setup()
 
@@ -32,7 +32,6 @@ SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 ITEM_PIPELINES = {
     'lordandtaylor.pipelines.LordandtaylorPipeline': 300,
-    'scrapy_redis.pipelines.RedisPipeline': 300,
 }
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
@@ -42,10 +41,6 @@ ITEM_PIPELINES = {
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
 DOWNLOAD_DELAY = 2
-DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-    'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
-}
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
